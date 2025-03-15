@@ -1,29 +1,34 @@
 const jwt = require("jsonwebtoken");
-const prisma = require("../../prisma");
+const { User } = require("../models");
 
 const authMiddleware = async (req, res, next) => {
-  const token = req.header("Authorization");
-  if (!token)
-    return res.status(401).json({ message: "Access Denied", success: false });
-
   try {
-    const verified = jwt.verify(
+    const token = req.header("Authorization");
+    if (!token) {
+      return res.status(401).json({ success: false, message: "Access Denied" });
+    }
+
+    // Verify JWT token
+    const decoded = jwt.verify(
       token.replace("Bearer ", ""),
       process.env.JWT_SECRET
     );
-    const user = await prisma.user.findUnique({
-      where: { id: verified.userId },
-      select: { id: true, email: true, role: true },
+
+    // Find user by ID
+    const user = await User.findByPk(decoded.userId, {
+      attributes: ["id", "email", "role"],
     });
 
-    if (!user)
-      return res.status(401).json({ message: "Access Denied", success: false });
+    if (!user) {
+      return res
+        .status(401)
+        .json({ success: false, message: "User not found" });
+    }
 
     req.user = user;
     next();
   } catch (err) {
-    // console.log(err);
-    res.status(400).json({ message: "Invalid Token", success: false });
+    res.status(401).json({ success: false, message: "Invalid Token" });
   }
 };
 
