@@ -24,7 +24,7 @@ This is a backend API for managing user-generated content with authentication, p
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-repo.git
+   git clone https://github.com/imranwebdeveloper/csm-express-backend
    cd your-repo
    ```
 
