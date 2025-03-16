@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const authRoutes = require("./routes/auth.routes");
-// const ticketsRoutes = require("./routes/ticket.routes");
+const contentRoutes = require("./routes/content.routes");
 const errorHandler = require("./middleware/error.middleware");
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors());
 
 // // Routes
 app.use("/api/auth", authRoutes);
-// app.use("/api/tickets", ticketsRoutes);
+app.use("/api/contents", contentRoutes);
 
 // Default route
 app.get("/", (req, res) => {

@@ -7,11 +7,9 @@ const {
 } = require("../validations/authValidation");
 const User = require("../models/User");
 const { formatJoiErrors } = require("../utils/errorFormatter");
+const { generateToken } = require("../utils/auth");
 
 // Generate JWT Token
-const generateToken = (id) => {
-  return jwt.sign({ id }, "your_secret_key");
-};
 
 // Register User
 async function register(req, res) {
