@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const authRoutes = require("./routes/auth.routes");
 const contentRoutes = require("./routes/content.routes");
+const userRoutes = require("./routes/user.routes");
 const errorHandler = require("./middleware/error.middleware");
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 
 // // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/contents", contentRoutes);
 
 // Default route
