@@ -13,6 +13,8 @@ npx sequelize-cli db:migrate -->
 
 This is the backend API for the Content Management System, allowing registered users to create, manage, and update their publicly viewable content. It provides authentication, user management, and content management functionalities.
 
+## Video Demo : [Watch](https://drive.google.com/file/d/1H-j_nyGmt-hRjC0AxeRXa6KO8gLsrQJX/view?usp=drive_link)
+
 ## Features
 
 - User authentication (JWT-based login & registration)
