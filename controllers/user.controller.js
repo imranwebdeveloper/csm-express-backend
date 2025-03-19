@@ -1,4 +1,3 @@
-const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const { getPagination, getPagingData } = require("../utils/pagination");
 const db = require("../models");
