@@ -13,6 +13,7 @@ exports.getContents = async (req, res) => {
       where: {},
       limit: pageSize,
       offset,
+      order: [["createdAt", "DESC"]],
     });
 
     res.json({

@@ -48,6 +48,7 @@ const getUsers = async (req, res) => {
           attributes: ["id", "title", "description", "youtubeUrl", "createdAt"],
         },
       ],
+      order: [["createdAt", "DESC"]],
     });
 
     res.json({

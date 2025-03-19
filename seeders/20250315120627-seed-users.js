@@ -10,7 +10,7 @@ module.exports = {
       {
         id: "550e8400-e29b-41d4-a716-446655440000",
         username: "admin",
-        email: "admin@example.com",
+        email: "admin@gmail.com",
         password: hashedPassword,
         role: "admin",
         image: "https://example.com/admin-avatar.png",

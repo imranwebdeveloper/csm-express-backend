@@ -127,7 +127,9 @@ const updateProfile = async (req, res) => {
     const { username, email, image } = req.body;
     const userId = req.user.id;
 
-    const user = await User.findByPk(userId);
+    const user = await User.findByPk(userId, {
+      attributes: ["id", "username", "email", "image", "role", "createdAt"],
+    });
 
     if (!user) {
       return res
